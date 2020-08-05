@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>defer</title>
+</head>
+<body>
+
+<!--
+    为了避免脚本在执行时影响页面的构造，HTML 为 <script> 标签定义了 defer 属性。
+    defer 属性能够迫使脚本延时被延时到整个页面都解析完毕后再运行。
+    因此，在 <script> 标签中设置 defer 属性，相当于告诉浏览器虽然可以立即下载 JavaScript 代码，但执行会被延迟。
+ -->
+<script type="text/javascript" defer th:src="@{/js/defer/script.js}"></script>
+
+<script th:inline="javascript" type="text/javascript">
+
+    window.onload = function () {
+        console.log('文档就绪函数')
+    }
+
+</script>
+
+</body>
+</html>
